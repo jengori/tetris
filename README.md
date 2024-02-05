@@ -9,3 +9,9 @@ See the challenge specification [here](https://codingchallenges.fyi/challenges/c
 ### Getting Started
 - Install Pygame `pip install pygame`
 - Run main.py
+
+![tetris screenshot 1](tetris1.png)
+![tetris screenshot 2](tetris2.png)
+![tetris screenshot 3](tetris3.png)
+![tetris screenshot 4](tetris4.png)
+

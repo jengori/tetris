@@ -66,7 +66,7 @@ class Tetris:
 
             if event.type == pygame.MOUSEBUTTONDOWN and self.game and self.game_over:
                 # if restart button is clicked on game screen
-                if RESTART_X < self.mouse_pos[0] < RESTART_X+BUTTON_HEIGHT and RESTART_Y < self.mouse_pos[1] < RESTART_Y+BUTTON_HEIGHT:
+                if RESTART_X < self.mouse_pos[0] < RESTART_X+BUTTON_WIDTH and RESTART_Y < self.mouse_pos[1] < RESTART_Y+BUTTON_HEIGHT:
                     self.game_over = False
                     self.game = Game()
 

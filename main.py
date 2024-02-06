@@ -62,8 +62,7 @@ class Tetris:
             if event.type == pygame.MOUSEBUTTONDOWN and self.game:
                 # if quit button is clicked on game screen
                 if QUIT_X < self.mouse_pos[0] < QUIT_X+BUTTON_WIDTH and QUIT_Y < self.mouse_pos[1] < QUIT_Y+BUTTON_HEIGHT:
-                    self.game_over = False
-                    self.game = None
+                    self.reset_game()
 
             if event.type == pygame.MOUSEBUTTONDOWN and self.game and self.game_over:
                 # if restart button is clicked on game screen
@@ -283,6 +282,7 @@ class Tetris:
 
     def reset_game(self):
         self.game = None
+        self.game_over = False
 
         with open("high_score.txt") as f:
             self.high_score = int(f.read())

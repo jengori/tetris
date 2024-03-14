@@ -24,11 +24,11 @@ class Tetris:
         self.clock = pygame.time.Clock()
         self.mouse_pos = pygame.mouse.get_pos()
 
-        with open("high_score.txt") as f:
-            try:
+        try:
+            with open("high_score.txt") as f:
                 self.high_score = int(f.read())
-            except ValueError:
-                self.high_score = 0
+        except FileNotFoundError:
+            self.high_score = 0
 
         self.main_loop()
 
@@ -274,7 +274,7 @@ class Tetris:
 
     def update_high_score(self):
         if self.game.score > self.high_score:
-            with open("high_score.txt", "w") as f:
+            with open("high_score.txt", "w+") as f:
                 f.write(str(self.game.score))
 
     def display_restart_button(self):
@@ -284,8 +284,11 @@ class Tetris:
         self.game = None
         self.game_over = False
 
-        with open("high_score.txt") as f:
-            self.high_score = int(f.read())
+        try:
+            with open("high_score.txt") as f:
+                self.high_score = int(f.read())
+        except FileNotFoundError:
+            self.high_score = 0
 
     def make_button(self, x_pos, y_pos, text):
         if x_pos < self.mouse_pos[0] < x_pos+BUTTON_WIDTH and y_pos < self.mouse_pos[1] < y_pos+BUTTON_HEIGHT:

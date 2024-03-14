@@ -300,4 +300,5 @@ class Tetris:
         self.window.blit(button_text, (x_pos+(BUTTON_WIDTH/2)-(button_text.get_width()/2), y_pos+5))
 
 
-Tetris()
+if __name__ == "__main__":
+    Tetris()
